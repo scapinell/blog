@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+<head>
+    <h2>Alinochka blog</h2>
+</head>
+    <form action="/" method="post">
+        {% csrf_token %}
+        <button type="submit" formaction="/creating/">Create note</button>
+    </form>
+<hr>
+<body>
+    <strong>Here will be linguistic kingdom</strong>
+    <br>
+    {% for post in posts %}
+    <ul>
+        {{ post.created_on }}
+        <br>
+        <strong>{{ post.title }}</strong>
+        <br>
+        {{ post.content }}
+    </ul>
+    <hr>
+    {% endfor %}
+    <br>
+    <br>
+    <form action="/" method="POST">
+        {% csrf_token %}
+        <input type="text" name="q">
+        <br>
+        <br>
+        <button type="submit" formaction="/">Search</button>
+    </form>
+</body>

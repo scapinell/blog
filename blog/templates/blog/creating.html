@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+<form method="post" action="/creating/">
+    {% csrf_token %}
+    <p>Title:</p>
+    <p><textarea rows="2" cols="45" name="title" wrap="soft"></textarea></p>
+    <!---<input type="text" name="title" size="40">--->
+    <br>
+    <p>Content:</p>
+    <!---<input type="text" name="content" size="50" style="height:200px;font-size:14pt;">--->
+    <p><textarea rows="10" cols="45" name="content" wrap="soft"></textarea></p>
+    <br>
+    <br>
+    <button type="submit" value="1" name="!!!">Submit</button>
+    <br>
+    <br>
+    <br>
+    <a href="/">To main page</a>
+</form>
