@@ -3,6 +3,7 @@ from django.views import View
 from django.http import HttpResponse, HttpResponseRedirect
 from blog.models import Post
 from datetime import datetime
+from django.contrib.auth.models import User
 
 
 class MainView(View):
@@ -33,3 +34,14 @@ class CreateNoteView(View):
             obj.save(force_insert=True)
             return HttpResponseRedirect('/')
         return render(request, 'blog/creating.html')
+
+
+def register(request):
+    name = request.POST.get('name')
+    password = request.POST.get('pass')
+    email = request.POST.get('email')
+    if request.POST.get('sub') == 'val':
+        user = User.objects.create_user(name, email, password)
+        user.save()
+        return HttpResponseRedirect('/')
+    return render(request, 'blog/log_in.html')

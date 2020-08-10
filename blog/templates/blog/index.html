@@ -9,10 +9,20 @@
         {% csrf_token %}
         <button type="submit" formaction="/creating/">Create note</button>
     </form>
-<hr>
+
 <body>
-    <strong>Here will be linguistic kingdom</strong>
-    <br>
+    <style>
+        .leftstr, .rightstr {
+        float: left;
+        width: 50%;
+        }
+        .rightstr {
+        text-align: center;
+        }
+    </style>
+    <h3 class="leftstr">Here will be linguistic kingdom</h3>
+    <h4 class="rightstr"><a href="/login">Join me</a></h4>
+    <hr>
     {% for post in posts %}
     <ul>
         {{ post.created_on }}

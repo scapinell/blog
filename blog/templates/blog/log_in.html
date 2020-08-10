@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+<form method="post" action="/login/">
+    {% csrf_token %}
+    <p>Enter nickname:</p>
+    <p><textarea rows="1" cols="45" name="name" wrap="soft"></textarea></p>
+    <br>
+    <p>Enter password:</p>
+    <p><textarea rows="1" cols="45" name="pass" wrap="soft"></textarea></p>
+    <br>
+    <p>Enter email:</p>
+    <p><textarea rows="1" cols="45" name="email" wrap="soft"></textarea></p>
+    <br>
+    <button type="submit" value="val" name="sub">Submit</button>
+    <br>
+</form>
